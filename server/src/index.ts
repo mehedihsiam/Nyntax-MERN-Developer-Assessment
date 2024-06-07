@@ -5,6 +5,7 @@ import cors from "cors";
 import handleError from "./middlewares/error.middlewere";
 import ROUTES from "./constants/ROUTES";
 import { carRouter } from "./routers/car.route";
+import { invoiceRouter } from "./routers/invoice.route";
 
 dotenv.config();
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 const port = getEnv("PORT", 3000);
 
 app.use(`${ROUTES.BASES.API_V1}${ROUTES.BASES.CAR}`, carRouter);
+app.use(`${ROUTES.BASES.API_V1}${ROUTES.BASES.INVOICE}`, invoiceRouter);
 
 app.use("/", (_req, res) => {
   res.send("Welcome to api");
