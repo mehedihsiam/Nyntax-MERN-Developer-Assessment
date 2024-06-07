@@ -1,3 +1,4 @@
+import { TCar } from "../types/car";
 import getEnv from "./getEnv";
 
 const fetchCars = async () => {

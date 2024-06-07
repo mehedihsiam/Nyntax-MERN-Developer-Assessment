@@ -6,12 +6,13 @@ import handleError from "./middlewares/error.middlewere";
 import ROUTES from "./constants/ROUTES";
 import { carRouter } from "./routers/car.route";
 import { invoiceRouter } from "./routers/invoice.route";
+import initializeFirebase from "./utils/initializeFirebase";
 
 dotenv.config();
 const app = express();
 app.use(json());
 app.use(cors());
-// connectDb();
+initializeFirebase();
 
 const port = getEnv("PORT", 3000);
 
