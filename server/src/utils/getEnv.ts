@@ -1,4 +1,4 @@
-type TKey = "PORT" | "DB_URL";
+type TKey = "PORT" | "DB_URL" | "CAR_LIST_API_URL" | "BUCKET_URL";
 const getEnv = <T>(key: TKey, defaultValue?: unknown) => {
   return (process.env[key] || defaultValue) as T;
 };
