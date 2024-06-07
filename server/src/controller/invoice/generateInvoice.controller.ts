@@ -4,32 +4,7 @@ import { Invoice } from "../../types/invoice";
 import fetchCars from "../../utils/fetchCars";
 import { TCar } from "../../types/car";
 import ResponseData from "../../utils/responseGenerator";
-
-type TRates = {
-  hourly: number;
-  daily: number;
-  weekly: number;
-};
-
-const calculateRent = (hours: number, rate: TRates): number => {
-  const day = 24;
-  const week = day * 7;
-
-  const weeks = Math.floor(hours / week);
-  const remainingHoursAfterWeeks = hours % week;
-
-  const days = Math.floor(remainingHoursAfterWeeks / day);
-  const remainingHoursAfterDays = remainingHoursAfterWeeks % day;
-
-  const weekRate = weeks * rate.weekly;
-  const dayRate = days * rate.daily;
-  const hourRate = remainingHoursAfterDays * rate.hourly;
-
-  const totalRent = weekRate + dayRate + hourRate;
-  console.log(totalRent);
-
-  return totalRent;
-};
+import calculateRent from "../../utils/calculateRent";
 
 const generateInvoiceController = async (
   req: Request,
